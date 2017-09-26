@@ -1,12 +1,18 @@
 .jumbotron {
 	background-color: #4c7bb8;
 }
+#nav-btn{
+	float: right;
+	margin-right: 40px;
+}
 #searchButtons {
 	background-color: ;
 }
-.btn-default {
+.btn-default-topic{
 	color: blue;
 	border: none;
 	padding: 5px;
-	
+}
+.bills{
+
 }

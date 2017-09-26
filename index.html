@@ -11,21 +11,22 @@
 	<div class="jumbotron text-center">
 		<h1>Bill Seeker</h1>
 		<h3>What do you care about?</h3>
+		<button type="button" class="btn btn-default navbar-btn" id="nav-btn">Sign In</button>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2" id="searchButtons">
 				<h3>Topic</h3>
-				<button class="btn btn-default" data-name="healthcare">Healthcare</button><br>
-				<button class="btn btn-default" data-name="education">Education</button><br>
-				<button class="btn btn-default" data-name="immigration">Immigration</button><br>
-				<button class="btn btn-default" data-name="gun control">Gun Control</button><br>
-				<button class="btn btn-default" data-name="social security">Social Security</button><br>
-				<button class="btn btn-default" data-name="taxes">Taxes</button><br>
-				<button class="btn btn-default" data-name="national security">National Security</button><br>
-				<button class="btn btn-default" data-name="labor">Labor and Employment</button><br>
-				<button class="btn btn-default" data-name="finance">Finance</button><br>
-				<button class="btn btn-default" data-name="environment">Environmental Protection</button>
+				<button class="btn btn-default-topic click me" data-label="healthcare">Healthcare</button><br>
+				<button class="btn btn-default-topic click me" data-label="education">Education</button><br>
+				<button class="btn btn-default-topic click me" data-label="immigration">Immigration</button><br>
+				<button class="btn btn-default-topic click me" data-label="gun control">Gun Control</button><br>
+				<button class="btn btn-default-topic click me" data-label="social security">Social Security</button><br>
+				<button class="btn btn-default-topic click me" data-label="taxes">Taxes</button><br>
+				<button class="btn btn-default-topic click me" data-label="national security">National Security</button><br>
+				<button class="btn btn-default-topic click me" data-label="labor">Labor and Employment</button><br>
+				<button class="btn btn-default-topic click me" data-label="finance">Finance</button><br>
+				<button class="btn btn-default-topic click me" data-label="environment">Environmental Protection</button>
 				<!-- pie chart for most frequently clicked -->
 				<div>
 					Chart
@@ -37,9 +38,9 @@
 			</div>
 			<div class="col-md-4">
 				<h3>Organizations</h3>
-				<div class="btn-group">
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Your State <span class="caret"></span></button>
-					<ul class="dropdown-menu">
+				<div class="dropdown">
+					<button type="button" class="btn btn-default dropdown-toggle" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Your State <span class="caret"></span></button>
+					<ul class="dropdown-menu" aria-labelledby="menu">
 						<li><a href="#">Alabama</a></li>
 						<li><a href="#">Alaska</a></li>
 						<li><a href="#">Arizona</a></li>
@@ -99,6 +100,8 @@
   	src="http://code.jquery.com/jquery-3.2.1.min.js"
   	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   	crossorigin="anonymous"></script>
+
   	<script type="text/javascript" src="assets/project.js"></script>
+
 </body>
 </html>
