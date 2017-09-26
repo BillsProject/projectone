@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project1: Bill Seeker</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/style/style.css">
+</head>
+<body>
+	<div class="jumbotron text-center">
+		<h1>Bill Seeker</h1>
+		<h3>What do you care about?</h3>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2" id="searchButtons">
+				<h3>Topic</h3>
+				<button class="btn btn-default">Healthcare</button><br>
+				<button class="btn btn-default">Education</button><br>
+				<button class="btn btn-default">Immigration</button><br>
+				<button class="btn btn-default">Gun Control</button><br>
+				<button class="btn btn-default">Social Security</button><br>
+				<button class="btn btn-default">Taxes</button><br>
+				<button class="btn btn-default">National Security</button><br>
+				<button class="btn btn-default">Labor and Employment</button><br>
+				<button class="btn btn-default">Finance</button><br>
+				<button class="btn btn-default">Environmental Protection</button>
+				<!-- pie chart for most frequently clicked -->
+				<div>
+					Chart
+				</div>
+			</div>
+			<div class="col-md-6">
+				<h3>What's Congress Doing?</h3>
+				<div class="bills"></div>
+			</div>
+			<div class="col-md-4">
+				<h3>Organizations</h3>
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select Your State <span class="caret"></span></button>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
