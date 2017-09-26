@@ -16,28 +16,31 @@ function displayBill() {
 	}).done(function(response) {
 		var amountBills = response.results[0].num_results;
 		for (var i = 0; i < amountBills; i++) {
-			var billDiv = $('<div>');
+			var billDiv = $('<div class="billContainer">');
 
 			var title = response.results[0].bills[i].title;
-			var titleP = $('<p>').text("Bill Title: " + title);
+			var titleP = $('<p class="title">').text("Bill Title: " + title);
 			
 			var introDate = response.results[0].bills[i].introduced_date;
-			var introP = $('<p>').text("Introduction Date: " + introDate);
+			var introP = $('<p class="dates">').text("Introduction Date: " + introDate);
 			
 			var summary = response.results[0].bills[i].summary_short;
-			var summaryP = $('<p>').text("Bill Summary: " + summary);
+			var summaryP = $('<p class="summarySection">').text("Bill Summary: " + summary);
 
 			var majorActionDate = response.results[0].bills[i].latest_major_action_date;
-			var actionDateP = $('<p>').text("Latest Major Action Date: " + majorActionDate);
+			var actionDateP = $('<p class="dates">').text("Latest Major Action Date: " + majorActionDate);
 
 			var majorAction = response.results[0].bills[i].latest_major_action;
-			var actionP = $('<p>').text("Latest Major Action: " + majorAction);
+			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
+
+
 
 			billDiv.append(titleP);
 			billDiv.append(introP);
 			billDiv.append(summaryP);
 			billDiv.append(actionDateP);
 			billDiv.append(actionP);
+
 
 			$('.bills').append(billDiv);
 		}
