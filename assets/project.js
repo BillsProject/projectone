@@ -4,7 +4,7 @@ function displayBill() {
 	$(".bills").empty()
 	window.that = this;
 	//
-	var topic = $(this).attr("data-name");
+	var topic = $(this).attr("data-label");
 
 	var urlCongress = "https://api.propublica.org/congress/v1/bills/search.json?query=" + topic; 
 	var apiKeyCongress = "wkEXsR0UlQgFmestVsn5LmX7oIygFk6ir1ej4Q8p";
@@ -48,4 +48,4 @@ function displayBill() {
 	});
 }
 // Ajax code to pull data with the Congress API
-$(document).on("click", ".btn", displayBill);
+$(document).on("click", ".click", displayBill);
