@@ -48,4 +48,57 @@ function displayBill() {
 	});
 }
 // Ajax code to pull data with the Congress API
+
 $(document).on("click", ".click", displayBill);
+
+
+
+//begin code for pulling from nonprofit API
+
+/* Note: this code is not yet finished. I am having trouble with the API 
+and have contacted Propublica (the website claims that you don't need a key, which sounds odd.)
+I am waiting to hear back from them. I've written some of the code that 
+will be needed once I have the API working, but have not completed it yet. */
+
+
+function displayOrgs() {
+	//clear info from previous selections
+	$("#orgs").empty();
+
+	//set variables and AJAX request
+	var state = $(".dropdown").attr(".dropdown-menu");
+
+	var urlOrgs = "https://projects.propublica.org/nonprofits/api/v2/search.json?q=" + state;
+	
+	$.ajax({
+		url: urlOrgs,
+		method: "GET"
+	}).done(function(response) {
+		var amountOrgs = response.results[0].num_results;
+
+		for (var i = 0; i < amountOrgs; i++) {
+			var orgsDiv = $('<div class="orgsContainer">');
+
+			var orgName = response.results[0].orgs[i].name;
+			var orgNameP = $('<p class="name">').text(orgName);
+			
+			var orgSubName = response.results[0].orgs[i].sub_name;
+			var orgSubNameP = $('<p class="sub-name">').text(orgSubName);
+			
+			var orgAddress = response.results[0].orgs[i].address;
+			var orgAddressP = $('<p class="address">').text(orgAddress);
+
+			var orgCity = response.results[0].orgs[i].city;
+			var orgState = response.results[0].orgs[i].state;
+			var orgZip = response.results[0].orgs[i].zipcode
+			var orgCityStateZipP = $('<p class="city-state-zip">').text(orgCity + ", " + orgState + " " + orgZip);
+
+			var guidestar = response.results[0].orgs[i].guidestar_url;
+			var guidestarP = $("<p class="guidestar">").text("Guidestar Profile: " + guidestar);
+		};
+	});
+
+};
+
+displayOrgs();
+
