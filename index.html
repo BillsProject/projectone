@@ -5,37 +5,44 @@
 	<title>Project1: Bill Seeker</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/style/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.2.1.min.js"
+  	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  	crossorigin="anonymous"></script>
+  	<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+
 </head>
 <body>
 	<div class="jumbotron text-center">
 		<div class="img"></div>
 		<h1>Bill Seeker</h1>
 		<h3>What do you care about?</h3>
-
-		<button type="button" class="btn btn-default navbar-btn" id="nav-btn">Sign In</button>
 	</div>
+	<div id="sign-in"><button>Sign In Here</button></div>
 	<div class="container" id="navbar">
 		<ul class="nav nav-tabs nav-justified">
-			<li><a href=""><h4>My Tracked Bills</h4></a></li>
+			<li id="heading"><a href="">My Tracked Bills</a></li>
 			<li><a href="">Search Bills</a></li>
 			<li><a href="">Contact Your Representative(s)</a></li>
 		</ul>
 	</div>
-	<div class="container">
+	<div class="container" id="main-content">
 		<div class="row">
 			<div class="col-md-2" id="searchBtns">
 				<h3>Topic</h3>
-				<div class="topic"><button class="search click me" data-label="healthcare">Healthcare</button></div>
-				<div class="topic"><button class="search click me" data-label="education">Education</button></div>
-				<div class="topic"><button class="search click me" data-label="immigration">Immigration</button></div>
-				<div class="topic"><button class="search click me" data-label="gun control">Gun Control</button></div>
-				<div class="topic"><button class="search click me" data-label="social security">Social Security</button></div>
-				<div class="topic"><button class="search click me" data-label="taxes">Taxes</button></div>
-				<div class="topic"><button class="search click me" data-label="national security">National Security</button></div>
-				<div class="topic"><button class="search click me" data-label="labor">Labor and Employment</button></div>
-				<div class="topic"><button class="search click me" data-label="finance">Finance</button></div>
-				<div class="topic"><button class="search click me" data-label="environment">Environmental Protection</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="healthcare">Healthcare</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="education">Education</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="immigration">Immigration</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="gun control">Gun Control</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="social security">Social Security</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="taxes">Taxes</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="national security">National Security</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="labor">Labor and Employment</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="finance">Finance</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="environment">Environmental Protection</button></div>
 				
 
 				<!-- pie chart for most frequently clicked -->
@@ -50,9 +57,9 @@
 			<div class="col-md-4">
 				<h3>Organizations</h3>
 				<div class="dropdown">
-					<button type="button" class="btn btn-default dropdown-toggle" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Your State <span class="caret"></span></button>
-					<ul class="dropdown-menu" aria-labeledby="menu">
-						<li><a href="#">Alabama</a></li>
+					<button type="button" class="btn btn-default dropdown-toggle" id="menu1" data-toggle="dropdown">Select Your State <span class="caret"></span></button>
+					<ul class="dropdown-menu scrollable-menu" role="menu" aria-labeledby="menu1">
+						<li class="item"><a href="#">Alabama</a></li>
 						<li><a href="#">Alaska</a></li>
 						<li><a href="#">Arizona</a></li>
 						<li><a href="#">Arkansas</a></li>
@@ -110,12 +117,6 @@
 			</div>
 		</div>
 	</div>
-
-
-	<script
-  	src="http://code.jquery.com/jquery-3.2.1.min.js"
-  	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  	crossorigin="anonymous"></script>
 
   	<script type="text/javascript" src="assets/project.js"></script>
 
