@@ -1,26 +1,34 @@
 body{
-
+	
 }
 .jumbotron{
-	background-image: url("../images/header_2.jpg");
+	background-image: url("../images/capitol_2.jpg");
+
 	background-size: auto 100%;
 	background-repeat: no-repeat;
 	margin-bottom: 0px;
 }
 #navbar{
-	margin-top: 0px;
-	background-color: ;
-	border-radius: 0 0 10px 10px;
+	padding: 0;
 }
+.nav-tabs.nav-justified>li>a{
+	border-radius: 0 0 7px 7px;
+	color: white;
+	background-color: darkred;
+}
+.nav-tabs.nav-justified>li>a:hover{
+	border-style: groove;
+	border-color: black;
+}
+
 #nav-btn{
 	float: right;
 	margin-right: 40px;
 }
-a:hover{
-	color: white;
-}
+
 #searchBtns{
-	background-color: lavender;
+	background-color: ;
+
 }
 #searchButtons {
 	background-color: none;
@@ -45,15 +53,18 @@ a:hover{
 	border: none;
 	text-align: left;
 }
-.search{
+.searchClickMe{
 	background: none;
 	border: none;
 	text-align: left;
 }
+div.topic{
+	background-color: white;
+}
 div.topic:hover{
 	color: white;
-	background-color: red;
-
+	background-color: darkred;
+	
 }
 .topic{
 	background-color: lavender;
@@ -61,3 +72,13 @@ div.topic:hover{
 	padding: 5px;
 	text-align: left;
 }
+.item>a:hover{
+	background-color: white;;
+	border: none;
+}
+.scrollable-menu{
+	height: auto;
+	max-height: 300px;
+	overflow-x: hidden;
+}
+
