@@ -82,3 +82,4 @@ div.topic:hover{
 	overflow-x: hidden;
 }
 
+.disabled { pointer-events: none; cursor: default; }
