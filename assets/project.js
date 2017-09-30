@@ -1,4 +1,6 @@
-// Variables to use the Propublica Congress API
+// congress API key
+var apiKeyCongress = "wkEXsR0UlQgFmestVsn5LmX7oIygFk6ir1ej4Q8p";
+
 function displayBill() {
 	// removes previous bill data
 	$(".bills").empty()
@@ -6,11 +8,11 @@ function displayBill() {
 	//
 	var topic = $(this).attr("data-label");
 
-	var urlCongress = "https://api.propublica.org/congress/v1/bills/search.json?query=" + topic; 
-	var apiKeyCongress = "wkEXsR0UlQgFmestVsn5LmX7oIygFk6ir1ej4Q8p";
+	var endPointBills = "https://api.propublica.org/congress/v1/bills/search.json?query=" + topic; 
+	
 
 	$.ajax({
-	url: urlCongress,
+	url: endPointBills,
 	headers: {"X-API-Key": apiKeyCongress},
 	method: "GET"
 	}).done(function(response) {
@@ -33,14 +35,11 @@ function displayBill() {
 			var majorAction = response.results[0].bills[i].latest_major_action;
 			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
 
-
-
 			billDiv.append(titleP);
 			billDiv.append(introP);
 			billDiv.append(summaryP);
 			billDiv.append(actionDateP);
 			billDiv.append(actionP);
-
 
 			$('.bills').append(billDiv);
 		}
@@ -52,53 +51,53 @@ function displayBill() {
 $(document).on("click", ".click", displayBill);
 
 
+// iife to show senator's in 94116
+!function (){
 
-//begin code for pulling from nonprofit API
+	// function showSenator() {
+		var googleKey = "AIzaSyAAJXq0f3uIq0J7B-MOkGZz-uFAvZsBJcY";
+		var address = "94116";
+		var googleURL = "https://www.googleapis.com/civicinfo/v2/representatives?key=" + googleKey + "&address=" + address;
 
-/* Note: this code is not yet finished. I am having trouble with the API 
-and have contacted Propublica (the website claims that you don't need a key, which sounds odd.)
-I am waiting to hear back from them. I've written some of the code that 
-will be needed once I have the API working, but have not completed it yet. */
+		$.ajax({
+			url: googleURL,
+			method: "GET"
+		}).done(function(representatives){
+			console.log(representatives);
+			for (var i = 2; i < 4; i++) {
+					var senatorDiv = $('<div class="senateContainer">');
+
+					var senatorName = representatives.officials[i].name;
+					var senatorNameP = $('<p class="senatorName">').text("Senator Name: " + senatorName);
+
+					var picture = representatives.officials[i].photoUrl;
+					var senatorPic = $('<img class="senatorPic">');
+					senatorPic.attr("src", picture);
+
+					var party = representatives.officials[i].party;
+					var partyP = $('<p>').text("Political Party: " + party);
+
+					var phone = representatives.officials[i].phones[0];
+					var phoneP = $('<p>').text("Phone Number: " + phone);
+
+					var website = representatives.officials[i].urls[0];
+					var websiteA = $('<p>website</p>');
+					websiteA.attr('href', website);
+
+					
+
+					senatorDiv.append(senatorNameP);
+					senatorDiv.append(senatorPic);
+					senatorDiv.append(partyP);
+					senatorDiv.append(phoneP);
+					senatorDiv.append(website);
+
+					$('.bills').append(senatorDiv);
+				}
+		});
+	 // }
+}();
 
 
-function displayOrgs() {
-	//clear info from previous selections
-	$("#orgs").empty();
 
-	//set variables and AJAX request
-	var state = $(".dropdown").attr(".dropdown-menu");
-
-	var urlOrgs = "https://projects.propublica.org/nonprofits/api/v2/search.json?q=" + state;
-	
-	$.ajax({
-		url: urlOrgs,
-		method: "GET"
-	}).done(function(response) {
-		var amountOrgs = response.results[0].num_results;
-
-		for (var i = 0; i < amountOrgs; i++) {
-			var orgsDiv = $('<div class="orgsContainer">');
-
-			var orgName = response.results[0].orgs[i].name;
-			var orgNameP = $('<p class="name">').text(orgName);
-			
-			var orgSubName = response.results[0].orgs[i].sub_name;
-			var orgSubNameP = $('<p class="sub-name">').text(orgSubName);
-			
-			var orgAddress = response.results[0].orgs[i].address;
-			var orgAddressP = $('<p class="address">').text(orgAddress);
-
-			var orgCity = response.results[0].orgs[i].city;
-			var orgState = response.results[0].orgs[i].state;
-			var orgZip = response.results[0].orgs[i].zipcode
-			var orgCityStateZipP = $('<p class="city-state-zip">').text(orgCity + ", " + orgState + " " + orgZip);
-
-			var guidestar = response.results[0].orgs[i].guidestar_url;
-			var guidestarP = $("<p class="guidestar">").text("Guidestar Profile: " + guidestar);
-		};
-	});
-
-};
-
-displayOrgs();
 
