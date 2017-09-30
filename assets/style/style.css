@@ -1,18 +1,63 @@
-.jumbotron {
-	background-color: #4c7bb8;
+body{
+
+}
+.jumbotron{
+	background-image: url("../images/header_2.jpg");
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	margin-bottom: 0px;
+}
+#navbar{
+	margin-top: 0px;
+	background-color: ;
+	border-radius: 0 0 10px 10px;
 }
 #nav-btn{
 	float: right;
 	margin-right: 40px;
 }
-#searchButtons {
-	background-color: ;
+a:hover{
+	color: white;
 }
+#searchBtns{
+	background-color: lavender;
+}
+#searchButtons {
+	background-color: none;
+
+}
+#topic{
+	background: none;
+}
+
 .btn-default-topic{
 	color: blue;
 	border: none;
 	padding: 5px;
+	background-color: none;
 }
 .bills{
 
+}
+
+.test{
+	background: none;
+	border: none;
+	text-align: left;
+}
+.search{
+	background: none;
+	border: none;
+	text-align: left;
+}
+div.topic:hover{
+	color: white;
+	background-color: red;
+
+}
+.topic{
+	background-color: lavender;
+	border-bottom: solid 0.3px;
+	padding: 5px;
+	text-align: left;
 }
