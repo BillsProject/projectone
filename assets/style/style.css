@@ -82,8 +82,7 @@ div.topic:hover{
 	overflow-x: hidden;
 }
 
-.disabled { pointer-events: none; cursor: default; }
-
+/* added to dynamic class removal/addition */
 .current {
 	color: pink;
 }
