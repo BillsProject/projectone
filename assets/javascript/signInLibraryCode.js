@@ -39,6 +39,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
     uid = user.uid;
+    userDataListener()
+
+
     // signedIn = true
     console.log(uid)
   } else {
@@ -48,7 +51,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     ui.start('#sign-in', uiConfig);     
     $("#sign-out").empty()
     $("#myLibrary").remove()
-    
+    database.ref("userData/"+uid).off('value', snapShotArray)
+    uid = undefined
 
   }
 });
@@ -79,10 +83,6 @@ function submitInterest(event){
     uid: uid
     })
 
-
-
-
-
 }
 
 function showLibrary(){
@@ -96,7 +96,7 @@ function showLibrary(){
     var p = $("<p>")
     var b = myArray[i]
     p.text(b)
-     libraryDiv.append(p)
+    libraryDiv.append(p)
   }
 
   $("#main-content").append(libraryDiv)
@@ -108,26 +108,16 @@ $(document).on("click", ".searchClickMe", submitInterest)
 $(document).on("click", "#myLibrary", showLibrary)
 
 
-database.ref("userData").on("child_added", function(snapshot) {
 
-  signedIn = snapshot.exists() && snapshot.val().uid === uid;   
+function userDataListener() {
 
-     if (signedIn=== true) {
-      myArray = snapshot.val().billArray
-      console.log(snapshot.val())
-      
+  database.ref("userData/"+uid).on("value", snapShotArray, function(errorObject){ 
+    console.log("The read failed: " + errorObject.code)
 
-      // for (var i=0; i < myArray.length; i++){
+  });
 
-      //   var p = $("<p>")
-      //   var b = myArray[i]
-      //   p.text(b)
-      //   $("#library").append(p)
-      // }
+}
 
-    }
-
-}, function(errorObject){ 
-  console.log("The read failed: " + errorObject.code)
-
-});
+function snapShotArray(snapshot) {
+  myArray = snapshot.val().billArray
+}
