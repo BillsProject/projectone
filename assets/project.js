@@ -33,7 +33,7 @@ function displayBill() {
 			var actionDateP = $('<p class="dates">').text("Latest Major Action Date: " + majorActionDate);
 
 			var majorAction = response.results[0].bills[i].latest_major_action;
-			var actionP = $('<p class="actions">').text("<button>Latest Major Action: </button>" + majorAction);
+			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
 			
 
 			billDiv.append(titleP);
