@@ -20,12 +20,42 @@
 		<div class="img"></div>
 		<h1>Bill Seeker</h1>
 		<h3>What do you care about?</h3>
+ 
 	</div>
-	<div id="sign-in"></div>
+	  <div id="account"><a data-toggle="modal" href="#myModal">Sign In</a></div>
+<!--   <li><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Sign In</button></li> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Your Own Library</h4>
+        </div>
+        <div class="modal-body">
+        	<p>By creating an account, you'll be able to save bills you wish to track for future reference. Youll still be able to access the public version of the site without an account, but won't be able to save anything for reference.</p>
+          <div id="sign-in"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> 
+      </div> 
+      
+    </div> 
+  </div>
+<!-- 	<div id="account"></div> -->
 	<div class="container" id="navbar">
 		<ul class="nav nav-tabs nav-justified" id="nav-tab-list">
-			<li><a href="#">Search Bills</a></li>
-			<li><a href="#" id="contactRep">Contact Your Representative(s)</a></li>
+			<li><a href="">Search Bills</a></li>
+			<li><a href="" id="contactRep">Contact Your Representative(s)</a></li>
+			
+
+  <!-- Trigger the modal with a button -->  
+</div>
+
 		</ul>
 	</div>
 	<div class="container" id="main-content">
@@ -46,12 +76,12 @@
 
 				<!-- pie chart for most frequently clicked -->
 				<div>
-					Chart
+					<canvas id= “trendingData” style=“width: 100px height: 90px !important”></canvas>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<h3>What's Congress Doing?</h3>
-				<div class="bills"></div>
+				<div class="bills scroll"></div>
 			</div>
 			<div class="col-md-4">
 				<h3>Organizations</h3>

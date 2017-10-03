@@ -36,6 +36,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     navTab.html('<a href="" class="disabled">My Tracked Bills</a>')
     // navTab.text("My Tracked Bills")
     $("#nav-tab-list").append(navTab)
+    // $("#account").html("Sign Out")
 
 
     uid = user.uid;
