@@ -33,7 +33,8 @@ function displayBill() {
 			var actionDateP = $('<p class="dates">').text("Latest Major Action Date: " + majorActionDate);
 
 			var majorAction = response.results[0].bills[i].latest_major_action;
-			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
+			var actionP = $('<p class="actions">').text("<button>Latest Major Action: </button>" + majorAction);
+			
 
 			billDiv.append(titleP);
 			billDiv.append(introP);
@@ -43,8 +44,8 @@ function displayBill() {
 
 			$('.bills').append(billDiv);
 		}
-
 	});
+	console.log("test")
 }
 // Ajax code to pull data with the Congress API
 

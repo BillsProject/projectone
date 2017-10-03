@@ -36,10 +36,6 @@ body{
 	margin-right: 40px;
 }
 
-#searchBtns{
-	background-color: ;
-
-}
 #searchButtons {
 	background-color: none;
 
@@ -68,12 +64,16 @@ body{
 }
 .title{
 	font-size: 18px;
-	text-align: center;
 }
-.test{
-	background: none;
+.libBtn{
+	float: right;
+	margin-left: 5px;
+	background-color: white;
 	border: none;
-	text-align: left;
+}
+.libBtn:hover{
+	color: darkred;
+	background-color: none;
 }
 .searchClickMe{
 	background: none;

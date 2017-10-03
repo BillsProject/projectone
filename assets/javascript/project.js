@@ -36,12 +36,17 @@ function displayBill() {
 			var majorAction = response.results[0].bills[i].latest_major_action;
 			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
 
+			var libBtn =$('<button type="button" class="libBtn"><span class="glyphicon glyphicon-bookmark"></span>')
+			libBtn.attr('data-label', title)
+
+			
+			billDiv.append(libBtn);
 			billDiv.append(titleP);
 			billDiv.append(introP);
 			billDiv.append(summaryP);
 			billDiv.append(actionDateP);
 			billDiv.append(actionP);
-			billDiv.append($("<hr>"));
+			
 
 			$('.bills').append(billDiv);
 		}
