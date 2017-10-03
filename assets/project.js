@@ -45,7 +45,6 @@ function displayBill() {
 			$('.bills').append(billDiv);
 		}
 	});
-	console.log("test")
 }
 // Ajax code to pull data with the Congress API
 
