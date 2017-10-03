@@ -34,6 +34,7 @@ function displayBill() {
 
 			var majorAction = response.results[0].bills[i].latest_major_action;
 			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
+			
 
 			billDiv.append(titleP);
 			billDiv.append(introP);
@@ -43,7 +44,6 @@ function displayBill() {
 
 			$('.bills').append(billDiv);
 		}
-
 	});
 }
 // Ajax code to pull data with the Congress API
