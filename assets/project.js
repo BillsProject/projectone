@@ -21,7 +21,7 @@ function displayBill() {
 			var billDiv = $('<div class="billContainer">');
 
 			var title = response.results[0].bills[i].title;
-			var titleP = $('<p class="title">').text("Bill Title: " + title);
+			var titleP = $('<p class="title">').text("Title: " + title);
 			
 			var introDate = response.results[0].bills[i].introduced_date;
 			var introP = $('<p class="dates">').text("Introduction Date: " + introDate);
@@ -48,7 +48,7 @@ function displayBill() {
 }
 // Ajax code to pull data with the Congress API
 
-$(document).on("click", ".click", displayBill);
+$(document).on("click", ".searchClickMe", displayBill);
 
 
 // iife to show senator's in 94116
