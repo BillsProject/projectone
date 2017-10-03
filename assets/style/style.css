@@ -83,3 +83,7 @@ div.topic:hover{
 }
 
 .disabled { pointer-events: none; cursor: default; }
+
+.current {
+	color: pink;
+}

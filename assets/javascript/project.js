@@ -7,6 +7,11 @@ function displayBill() {
 	$(".bills").empty()
 	window.that = this;
 	//
+
+	$(".searchClickMe").removeClass("current");               
+    $(this).addClass("current");
+
+
 	var topic = $(this).attr("data-label");
 
 	var endPointBills = "https://api.propublica.org/congress/v1/bills/search.json?query=" + topic; 
