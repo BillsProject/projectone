@@ -9,7 +9,9 @@ $(".item").click(function(displayOrgs) {
 
 
 	//set up ajax variables
-	var urlOrgs = "https://api.globalgiving.org/api/public/services/search/projects/summary?api_key=7676537c-931a-4d85-afff-af954b70f739&q=" + state + "&filter=country:US";
+	var orgsKey = "AIzaSyDSd7MysddE5ZXyQW-s36ydI0Wlt793Q98"
+	var csKey =  "007404496376415496285:znz6cfip7pc"
+	var urlOrgs = "https://www.googleapis.com/customsearch/v1?key=" + orgsKey + "&cx=" + csKey + "&q=healthcare"
 	console.log(urlOrgs);
 	//start ajax request
 	$.ajax({
