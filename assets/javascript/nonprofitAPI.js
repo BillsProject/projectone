@@ -16,13 +16,17 @@ $(".item").click(function(displayOrgs) {
 	//start ajax request
 	$.ajax({
 		url: urlOrgs,
+		contentType: "application/json",
+		dataType: "json",
 		method: "GET"
 	}).done(function(response) {
-			//parse and pull response
- 			var xmlResponse = $(response).find('search').find('response').find('projects').find('name');
- 			console.log(xmlResponse);
- 			//append response to orgs div
- 			$("#orgs").append(xmlResponse);
+			console.log(response);
+			//stringify response
+ 			
+ 			var pullOrgs = JSON.stringify(response.items[0].htmlFormattedUrl);
+ 			console.log(pullOrgs);
+ 			//append to div
+ 			$("#orgs").append(pullOrgs);
 
  	});
 
