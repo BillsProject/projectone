@@ -34,7 +34,8 @@
       },
       options: {
         legend: {
-        onClick: function(event, legendItem) {}
+        onClick: function(event, legendItem) {},
+        position: "bottom"
         }
       }
     }

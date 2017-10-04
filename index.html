@@ -22,7 +22,14 @@
 		<h3>What do you care about?</h3>
  
 	</div>
-	  <div id="account"><a data-toggle="modal" href="#myModal">Sign In</a></div>
+	  <div id="account">
+	  	<div id="accountGreeting">
+  		</div>
+	  	<a data-toggle="modal" href="#myModal">
+	  		<span id="accountStatus">Sign In</span>
+	  	</a>
+	  	
+	  </div>
 <!--   <li><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Sign In</button></li> -->
 
   <!-- Modal -->
@@ -45,7 +52,10 @@
       </div> 
       
     </div> 
+   
   </div>
+
+
 <!-- 	<div id="account"></div> -->
 	<div class="container" id="navbar">
 		<ul class="nav nav-tabs nav-justified" id="nav-tab-list">
@@ -72,14 +82,14 @@
 				<div class="topic"><button class="searchClickMe" data-label="labor">Labor and Employment</button></div>
 				<div class="topic"><button class="searchClickMe" data-label="finance">Finance</button></div>
 				<div class="topic"><button class="searchClickMe" data-label="environment">Environmental Protection</button></div>
-				
 
 				<!-- pie chart for most frequently clicked -->
 				<div>
-					<canvas id= “trendingData” height=400></canvas>
+					<h3>Hot Topics!</h3>
+					<canvas id = "trendingData" height=400></canvas>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" id="middleCol">
 				<h3>What's Congress Doing?</h3>
 				<div class="bills scroll"></div>
 			</div>
@@ -150,10 +160,11 @@
 		</div>
 	</div>
 
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
   	<script type="text/javascript" src="assets/javascript/project.js"></script>
   	<script type="text/javascript" src="assets/javascript/signInLibraryCode.js"></script>
 	<script type="text/javascript" src="assets/javascript/chart.js"></script>
-   	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+
 
 </body>
 </html>
