@@ -28,12 +28,13 @@ var signedIn = false
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // $("#status").text("signed in, "+ user.displayName)
-    $("#sign-in").empty()
-    var signOutDiv = $('<div id="sign-out">')
-    signOutDiv.html('<button id="sign-out">Sign Out</button>')
-    $("#sign-in").append(signOutDiv)
+    $("#accountStatus").empty()
+    var signOutDiv = $('<div id="sign-out" style="margin-top: -10px">')
+    signOutDiv.html("<p>Sign Out</p>")
+    $("#accountGreeting").html("<p>Hello, " + user.displayName + "!</p>")
+    $("#accountStatus").append(signOutDiv)
     var navTab = $('<li id="myLibrary">')
-    navTab.html('<a href="" class="disabled">My Tracked Bills</a>')
+    navTab.html('<a href="#" class="disabled">My Tracked Bills</a>')
     // navTab.text("My Tracked Bills")
     $("#nav-tab-list").append(navTab)
     // $("#account").html("Sign Out")
@@ -51,7 +52,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start('#sign-in', uiConfig);     
     $("#sign-out").empty()
+    $("#accountStatus").text("Sign In")
+    $("#accountGreeting").empty()
     $("#myLibrary").remove()
+    $("#library").text("Oh no! You're signed out!")
     database.ref("userData/"+uid).off('value', snapShotArray)
     uid = undefined
 
@@ -88,7 +92,7 @@ function submitInterest(event){
 
 function showLibrary(){
 
-  $("#main-content").empty()
+  $("#middleCol").empty()
 
   var libraryDiv = $("<div id=library>")
 
@@ -100,7 +104,7 @@ function showLibrary(){
     libraryDiv.append(p)
   }
 
-  $("#main-content").append(libraryDiv)
+  $("#middleCol").append(libraryDiv)
 
 }
 
