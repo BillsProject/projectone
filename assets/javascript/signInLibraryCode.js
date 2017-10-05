@@ -55,7 +55,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     $("#accountStatus").text("Sign In")
     $("#accountGreeting").empty()
     $("#myLibrary").remove()
-    $("#library").text("Oh no! You're signed out!")
+    $("#innerMid").text("Oh no! You're signed out!")
     database.ref("userData/"+uid).off('value', snapShotArray)
     uid = undefined
 
@@ -75,7 +75,7 @@ function signOutOnClick() {
 function submitInterest(event){
   event.preventDefault();
 
-  //create a variable for the info submitted
+  //create a variable for the data label clicked
 
   var clickedBill = $(this).attr("data-label")
 
@@ -94,7 +94,7 @@ function showLibrary(){
 
   $("#middleCol").empty()
 
-  billUri = $(this).attr("data-label")
+  // billUri = $(this).attr("data-label")
   $("#middleCol").html("<h3>Things I care about!</h3><div id='innerMid' style='overflow:scroll; height:700px'></div>")
 
   
@@ -112,7 +112,6 @@ function showLibrary(){
     method: "GET"
     }).done(function(response) {
      
-        console.log(response)
         
         var libraryDiv = $("<div id=library class='billContainer'>")
 
@@ -120,30 +119,19 @@ function showLibrary(){
         var something = response.results[0].congressdotgov_url
         var titleP = $("<h3>Bill Title: <a href="+something+">"+title+"</a></h3>")
         
-        
+        var removeButton = $("<button class='remove' data-label=" + url + ">Remove</button>")
 
-        // var introDate = response.results[0].bills[i].introduced_date;
-        // var introP = $('<p class="dates">').text("Introduction Date: " + introDate);
         
         var summary = response.results[0].summary_short;
-        var summaryP = $('<p class="summarySection">').text("Bill Summary: " + summary);
-
-        // var majorActionDate = response.results[0].bills[i].latest_major_action_date;
-        // var actionDateP = $('<p class="dates">').text("Latest Major Action Date: " + majorActionDate);
-
-        // var majorAction = response.results[0].bills[i].latest_major_action;
-        // var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
-
-        // // libBtn.attr('data-label', title)
-        
-
         
         libraryDiv.append(titleP);
-        libraryDiv.append(summaryP);
-        // billDiv.append(summaryP);
-        // billDiv.append(actionDateP);
-        // billDiv.append(actionP);
         
+        if (summary.length > 0) {
+        var summaryP = $('<p class="summarySection">').text("Bill Summary: " + summary);
+        libraryDiv.append(summaryP);
+        }
+        
+        libraryDiv.append(removeButton)
 
         $("#library").append(libraryDiv);
         $("#innerMid").append(libraryDiv)
@@ -158,8 +146,28 @@ function showLibrary(){
 $(document).on("click", "#sign-out", signOutOnClick)
 $(document).on("click", ".libBtn", submitInterest)
 $(document).on("click", "#myLibrary", showLibrary)
+$(document).on("click", ".remove", removeFromLibrary)
 
 
+function removeFromLibrary (){
+  var billURI = $(this).attr("data-label")
+  console.log(billURI)
+  var index = myArray.indexOf(billURI);
+
+  if (index > -1) {
+    myArray.splice(index, 1);
+  }
+
+  console.log(myArray)
+  //push the info submitted into the database
+
+  database.ref("userData/"+ uid).set({     
+    billArray: myArray,
+    uid: uid
+    })
+
+  showLibrary()
+}
 
 function userDataListener() {
 
@@ -171,5 +179,10 @@ function userDataListener() {
 }
 
 function snapShotArray(snapshot) {
-  myArray = snapshot.val().billArray
+  if (snapshot.val().billArray === undefined) {
+    myArray = []
+
+  }else {
+    myArray = snapshot.val().billArray
+  }
 }
