@@ -27,7 +27,7 @@ function displayBill() {
 			var billDiv = $('<div class="billContainer">');
 
 			var title = response.results[0].bills[i].title;
-			var titleP = $('<p class="title">').text("Bill Title: " + title);
+			var titleP = $('<p class="title" data-type="tooltip">').text("Bill Title: " + title);
 			
 			var introDate = response.results[0].bills[i].introduced_date;
 			var introP = $('<p class="dates">').text("Introduction Date: " + introDate);
@@ -42,7 +42,11 @@ function displayBill() {
 			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
 
 			var libBtn =$('<button type="button" class="libBtn"><span class="glyphicon glyphicon-bookmark"></span>')
-			libBtn.attr('data-label', title)
+			libBtn.attr('data-toggle', 'tooltip');
+			libBtn.attr('data-placement', 'right');
+			libBtn.attr('title', 'Add to Library');
+			// libBtn.attr('data-label', title)
+			
 
 			
 			billDiv.append(libBtn);
@@ -106,7 +110,7 @@ function showRep() {
 				senatorDiv.append(senatorPic);
 				senatorDiv.append(partyP);
 				senatorDiv.append(phoneP);
-				senatorDiv.append($("<hr>"));
+				// senatorDiv.append($("<hr>"));
 				// senatorDiv.append(website);
 
 				$('.bills').append(senatorDiv);
@@ -120,19 +124,19 @@ function repSearch() {
 	 	var addressForm = $("<div id='addForm'>");
 
 	 	var searchHeader = "Enter your address to find you Congress Representatives";
-	 	var searchh3 = $('<h3>').text(searchHeader); 
+	 	var searchh3 = $('<h4 id="enter">').text(searchHeader); 
 
 	 	var searchAddress = "Street Address";
-	 	var addessh4 = $('<h4>').text(searchAddress).append($('<div>')).append($('<input id="street-input">')); 
+	 	var addessh4 = $('<h5>').text(searchAddress).append($('<div>')).append($('<input id="street-input">')); 
 
 	 	var searchCity = "City";
-	 	var cityh4 = $('<h4>').text(searchCity).append($('<div>')).append($('<input id="city-input">'));
+	 	var cityh4 = $('<h5>').text(searchCity).append($('<div>')).append($('<input id="city-input">'));
 
 	 	var searchState = "State";
-	 	var stateh4 = $('<h4>').text(searchState).append($('<div>')).append($('<input id="state-input">'));
+	 	var stateh4 = $('<h5>').text(searchState).append($('<div>')).append($('<input id="state-input">'));
 
 	 	var searchZip = "Zip";
-	 	var ziph4 = $('<h4>').text(searchZip).append($('<div>')).append($('<input id="zip-input">'));
+	 	var ziph4 = $('<h5>').text(searchZip).append($('<div>')).append($('<input id="zip-input">'));
 
 	 	var searchButton = $('<button id="submitAdd">').text('Submit');
 
