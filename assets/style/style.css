@@ -1,12 +1,14 @@
 body{
-	
+	margin-bottom: 50px;
 }
 .jumbotron{
-	background-image: url("../images/congress.jpg");
-
-	background-size: auto 100%;
-	background-repeat: no-repeat;
+	/*background-image: url("../images/congress.jpg");*/
+/*	background-size: auto 100%;
+	background-repeat: no-repeat;*/
 	margin-bottom: 0px;
+	background-color: white;
+	border-bottom: solid black 4px;
+	font-family: 'Merriweather', serif;
 }
 #account{
 	float: right;
@@ -64,6 +66,7 @@ body{
 }
 .title{
 	font-size: 18px;
+	text-align: center;
 }
 .libBtn{
 	float: right;
@@ -104,7 +107,48 @@ div.topic:hover{
 	overflow-x: hidden;
 }
 
+#addForm{
+	padding: 7px;
+}
+#street-input, #city-input, #state-input, #zip-input{
+	padding: 5px;
+	margin: 3px;
+}
+#enter{
+	margin-bottom: 20px;
+}
+#submitAdd{
+	background-color: darkred;
+	color: white;
+	border: none;
+	padding: 7px;
+	border-radius: 4px;
+}
+.senateContainer{
+	text-align: center;
+	border-top: solid black 2px;
+	margin-top: 20px;
+}
+.senatorName{
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+img{
+	border: solid;
+	box-shadow: 3px 3px lightgrey;
+}
+.senatorPic{
+	margin-bottom: 10px;
+	border-color: black;
+	border-width: 2px;
+}
 /* added to dynamic class removal/addition */
 .current {
 	color: pink;
+}
+
+.libBtn + tooltip > tooltip-inner{
+	background-color: black;
+	color: white;
 }
