@@ -94,14 +94,59 @@ function showLibrary(){
 
   $("#middleCol").empty()
 
-  var libraryDiv = $("<div id=library>")
+  billUri = $(this).attr("data-label")
+  $("#middleCol").html("<h3>Things I care about!</h3>")
+
+  var libraryDiv = $("<div id=library style='overflow:scroll'>")
+
 
   for (var i=0; i < myArray.length; i++){
 
-    var p = $("<p>")
-    var b = myArray[i]
-    p.text(b)
-    libraryDiv.append(p)
+    var apiKey = "wkEXsR0UlQgFmestVsn5LmX7oIygFk6ir1ej4Q8p";
+
+    var url = myArray[i]
+
+    $.ajax({
+    url: url,
+    headers: {"X-API-Key": apiKey},
+    method: "GET"
+    }).done(function(response) {
+     
+        console.log(response)
+        
+
+        var title = response.results[0].title;
+        var something = response.results[0].congressdotgov_url
+        var titleP = $("<h2>Bill Title: <a href="+something+">"+title+"</a></h2>")
+        
+        
+
+        // var introDate = response.results[0].bills[i].introduced_date;
+        // var introP = $('<p class="dates">').text("Introduction Date: " + introDate);
+        
+        var summary = response.results[0].summary_short;
+        var summaryP = $('<p class="summarySection">').text("Bill Summary: " + summary);
+
+        // var majorActionDate = response.results[0].bills[i].latest_major_action_date;
+        // var actionDateP = $('<p class="dates">').text("Latest Major Action Date: " + majorActionDate);
+
+        // var majorAction = response.results[0].bills[i].latest_major_action;
+        // var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
+
+        // // libBtn.attr('data-label', title)
+        
+
+        
+        libraryDiv.append(titleP);
+        libraryDiv.append(summaryP);
+        // billDiv.append(summaryP);
+        // billDiv.append(actionDateP);
+        // billDiv.append(actionP);
+        
+
+        $("#library").append(libraryDiv);
+      
+    });
   }
 
   $("#middleCol").append(libraryDiv)
@@ -109,7 +154,7 @@ function showLibrary(){
 }
 
 $(document).on("click", "#sign-out", signOutOnClick)
-$(document).on("click", ".searchClickMe", submitInterest)
+$(document).on("click", ".libBtn", submitInterest)
 $(document).on("click", "#myLibrary", showLibrary)
 
 
