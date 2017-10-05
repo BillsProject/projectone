@@ -30,7 +30,7 @@ function displayBill() {
 			libBtn.attr('data-toggle', 'tooltip');
 			libBtn.attr('data-placement', 'right');
 			libBtn.attr('title', 'Add to Library');
-			// libBtn.attr('data-label', title)
+			libBtn.attr('data-label', response.results[0].bills[i].bill_uri)
 			billDiv.append(libBtn);
 
 			var title = response.results[0].bills[i].title;
