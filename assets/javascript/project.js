@@ -45,7 +45,7 @@ function displayBill() {
 			libBtn.attr('data-toggle', 'tooltip');
 			libBtn.attr('data-placement', 'right');
 			libBtn.attr('title', 'Add to Library');
-			// libBtn.attr('data-label', title)
+			libBtn.attr('data-label', title)
 			
 
 			
