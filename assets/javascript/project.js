@@ -112,7 +112,7 @@ function showRep() {
 				// senatorDiv.append($("<hr>"));
 				// senatorDiv.append(website);
 
-				$('.bills').append(senatorDiv);
+				$('#middleCol').append(senatorDiv);
 			}
 	});
  };
