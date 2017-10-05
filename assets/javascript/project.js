@@ -4,7 +4,7 @@ function displayBill() {
 	var apiKeyCongress = "wkEXsR0UlQgFmestVsn5LmX7oIygFk6ir1ej4Q8p";
 
 	// removes previous bill data
-	$(".bills").empty()
+	$("#middleCol").empty()
 	window.that = this;
 	//
 
@@ -57,7 +57,7 @@ function displayBill() {
 			billDiv.append(actionP);
 			
 
-			$('.bills').append(billDiv);
+			$('#middleCol').append(billDiv);
 		}
 	});
 }
@@ -119,7 +119,7 @@ function showRep() {
  };
 
 function repSearch() {
-	 	$(".bills").empty()
+	 	$("#middleCol").empty()
 
 	 	var addressForm = $("<div id='addForm'>");
 
@@ -142,7 +142,7 @@ function repSearch() {
 
 	 	addressForm.append(searchh3).append(addessh4).append(cityh4).append(stateh4).append(ziph4).append(searchButton);
 
-	 	$('.bills').append(addressForm);
+	 	$('#middleCol').append(addressForm);
 }
 
 $(document).on("click", ".searchClickMe", displayBill);
