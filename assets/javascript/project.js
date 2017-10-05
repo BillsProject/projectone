@@ -26,37 +26,36 @@ function displayBill() {
 		for (var i = 0; i < 5; i++) {
 			var billDiv = $('<div class="billContainer">');
 
-			var title = response.results[0].bills[i].title;
-			var titleP = $('<p class="title" data-type="tooltip">').text("Bill Title: " + title);
-			
-			var introDate = response.results[0].bills[i].introduced_date;
-			var introP = $('<p class="dates">').text("Introduction Date: " + introDate);
-			
-			var summary = response.results[0].bills[i].summary_short;
-			var summaryP = $('<p class="summarySection">').text("Bill Summary: " + summary);
-
-			var majorActionDate = response.results[0].bills[i].latest_major_action_date;
-			var actionDateP = $('<p class="dates">').text("Latest Major Action Date: " + majorActionDate);
-
-			var majorAction = response.results[0].bills[i].latest_major_action;
-			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
-
 			var libBtn =$('<button type="button" class="libBtn"><span class="glyphicon glyphicon-bookmark"></span>')
 			libBtn.attr('data-toggle', 'tooltip');
 			libBtn.attr('data-placement', 'right');
 			libBtn.attr('title', 'Add to Library');
-			libBtn.attr('data-label', title)
-			
-
-			
+			// libBtn.attr('data-label', title)
 			billDiv.append(libBtn);
+
+			var title = response.results[0].bills[i].title;
+			var titleP = $('<p class="title" data-type="tooltip">').text("Bill Title: " + title);
 			billDiv.append(titleP);
+			
+			var introDate = response.results[0].bills[i].introduced_date;
+			var introP = $('<p class="dates">').text("Introduction Date: " + introDate);
 			billDiv.append(introP);
-			billDiv.append(summaryP);
+			
+			var summary = response.results[0].bills[i].summary_short;
+			if (summary.length > 0) {
+				var summaryP = $('<p class="summarySection">').text("Bill Summary: " + summary);
+				billDiv.append(summaryP);
+			}
+
+			var majorActionDate = response.results[0].bills[i].latest_major_action_date;
+			var actionDateP = $('<p class="dates">').text("Latest Major Action Date: " + majorActionDate);
 			billDiv.append(actionDateP);
+
+			var majorAction = response.results[0].bills[i].latest_major_action;
+			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
 			billDiv.append(actionP);
 			
-
+			
 			$('#middleCol').append(billDiv);
 		}
 	});
