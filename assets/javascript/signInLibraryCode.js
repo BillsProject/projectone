@@ -95,9 +95,9 @@ function showLibrary(){
   $("#middleCol").empty()
 
   billUri = $(this).attr("data-label")
-  $("#middleCol").html("<h3>Things I care about!</h3>")
+  $("#middleCol").html("<h3>Things I care about!</h3><div id='innerMid' style='overflow:scroll; height:700px'></div>")
 
-  var libraryDiv = $("<div id=library style='overflow:scroll'>")
+  
 
 
   for (var i=0; i < myArray.length; i++){
@@ -114,10 +114,11 @@ function showLibrary(){
      
         console.log(response)
         
+        var libraryDiv = $("<div id=library class='billContainer'>")
 
         var title = response.results[0].title;
         var something = response.results[0].congressdotgov_url
-        var titleP = $("<h2>Bill Title: <a href="+something+">"+title+"</a></h2>")
+        var titleP = $("<h3>Bill Title: <a href="+something+">"+title+"</a></h3>")
         
         
 
@@ -145,11 +146,12 @@ function showLibrary(){
         
 
         $("#library").append(libraryDiv);
+        $("#innerMid").append(libraryDiv)
       
     });
   }
 
-  $("#middleCol").append(libraryDiv)
+  
 
 }
 
