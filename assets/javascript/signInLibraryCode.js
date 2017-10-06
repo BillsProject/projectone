@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     userDataListener()
 
 
-    // signedIn = true
+    signedIn = true
     console.log(uid)
   } else {
     // Initialize the FirebaseUI Widget using Firebase.
@@ -58,6 +58,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     $("#innerMid").text("Oh no! You're signed out!")
     database.ref("userData/"+uid).off('value', snapShotArray)
     uid = undefined
+    signedIn = false
 
   }
 });
@@ -75,6 +76,7 @@ function signOutOnClick() {
 function submitInterest(event){
   event.preventDefault();
 
+  if (signedIn === true) {
   //create a variable for the data label clicked
 
   var clickedBill = $(this).attr("data-label")
@@ -87,7 +89,13 @@ function submitInterest(event){
     billArray: myArray,
     uid: uid
     })
+  } else {
+    $("#message").show()
+    setTimeout(function() {
+      $("#message").hide()
+    }, 2000)
 
+  }
 }
 
 function showLibrary(){
