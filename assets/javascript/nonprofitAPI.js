@@ -6,8 +6,14 @@ $(".item").click(function(displayOrgs) {
 	//pull value of dropdown selection
 
 	$(".item").select();
-	var state = $(this).text();
+	//split and join to take care of spaces
+	var state = ($(this).text()).split(' ').join('+');
 	console.log(state);
+	var newTopic = ($(".current").text()).split(' ').join('+');
+	console.log(newTopic);
+
+	//empty orgs div to clear previous search results
+	$("#orgs").empty();
 
 
 	//set up ajax variables
@@ -17,7 +23,7 @@ $(".item").click(function(displayOrgs) {
 	//Google custom search key
 	var csKey =  "007404496376415496285:znz6cfip7pc"
 	// url
-	var urlOrgs = "https://www.googleapis.com/customsearch/v1?key=" + orgsKey + "&cx=" + csKey + "&q=healthcare"
+	var urlOrgs = "https://www.googleapis.com/customsearch/v1?key=" + orgsKey + "&cx=" + csKey + "&q=" + state + "+" + newTopic
 	console.log(urlOrgs);
 
 	//start ajax request
@@ -35,38 +41,34 @@ $(".item").click(function(displayOrgs) {
 
 			
 
-			for (var i = 0; i < response.items.length; i++) {
-				var getLink = JSON.stringify(responseItems[i].formattedUrl);
-				var linkArray = [getLink];
+			for (var i = 0; i < responseItems.length; i++) {
+				//stringify link
+				var stringLink = JSON.stringify(responseItems[i].formattedUrl);
+				console.log(stringLink);
+				//remove quotation marks from links
+				var getLink = stringLink.replace(/['"]+/g, '');
+				console.log(getLink);
+				//dynamically create div and append to sidebar
+				var linkDiv = $("<div class='link-container'>");
+				$("#orgs").append(linkDiv);
+				//create links using data from getLink
+				var activeLink = $("<a />", {
+				id: "org-link",
+				name: responseItems[i].title,
+				href: getLink,
+				text: responseItems[i].title,
+				});
+				//append finished links to link container
+				$(".link-container").append(activeLink);
 
-				console.log(linkArray);
-				$("#orgs").append(linkArray);
+				//create and append div for snippet (org summary)
+				var snippetDiv = $("<div class='snippet-container'>");
+				$("#orgs").append(snippetDiv);
+				//stringify and append snippet
+				var snippet = JSON.stringify(responseItems[i].snippet);
+				$(".snippet-container").append(snippet);
 
-				// for (var i = 0; i < linkArray.length; i++) {
-				// 	var linkDiv = $("<div class='link-container'>");
-				// 	$("#orgs").append(linkDiv);
-				// 	$(".link-container").append(linkArray);
-
-
-				// 	// var wholeTitle = responseItems[i].title;
-				// 	// var splitTitle = wholeTitle.split("|")[0];
-
-
-				// 	var activeLink = $("<a />", {
-				// 		id: "org-link",
-				// 		// name: splitTitle,
-				// 		name: responseItems[i].title,
-				// 		href: linkArray[i],
-				// 		// text: splitTitle,
-				// 		text: responseItems[i].title,
-				// 		});
-
-				// 	$(".link-container").append(activeLink);
-
-				// 	};
-			
 			};
 
 		});
-
 });
