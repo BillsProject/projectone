@@ -6,9 +6,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/style/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="http://code.jquery.com/jquery-3.2.1.min.js"
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
   	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   	crossorigin="anonymous"></script>
   	<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
@@ -17,12 +19,10 @@
 
 </head>
 <body>
-	<div class="jumbotron text-center">
+	<div class="page-header">
 		<div class="img"></div>
 		<h1>Bill Seeker</h1>
 		
- 
-	</div>
 	  <div id="account">
 	  	<div id="accountGreeting">
   		</div>
@@ -30,8 +30,8 @@
 	  		<span id="accountStatus">Sign In</span>
 	  	</a>
 	  	
-	  </div>
-<!--   <li><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Sign In</button></li> -->
+	</div>
+
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -44,8 +44,86 @@
           <h4 class="modal-title">Create Your Own Library</h4>
         </div>
         <div class="modal-body">
-        	<p>By creating an account, you'll be able to save bills you wish to track for future reference. Youll still be able to access the public version of the site without an account, but won't be able to save anything for reference.</p>
+        	<p>Creating an account allows you to track bills you wish to follow more closely.</p>
           <div id="sign-in"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> 
+      </div> 
+      
+    </div> 
+   
+  </div>
+</div>
+
+<div class="container" id="siteBody">
+<!-- 	<div id="account"></div> -->
+	<div class="container" id="navbar">
+		<ul class="nav nav-tabs nav-justified" id="nav-tab-list">
+			<li><a href="">Search Bills</a></li>
+			<li><a href="#" id="contactRep">Contact Your Representatives</a></li>
+			
+
+  <!-- Trigger the modal with a button -->  
+	</div>
+
+		</ul>
+	
+	<div class="container" id="main-content">
+		<div class="row">
+			<div class="col-md-2" id="searchBtns">
+				<h3>Search <span class="glyphicon glyphicon-search"></span></h3>
+				
+				<div class="topic"><button class="searchClickMe" data-label="education">Education</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="environment">Environmental Protection</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="finance">Finance</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="gun control">Gun Control</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="healthcare">Healthcare</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="immigration">Immigration</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="labor">Labor and Employment</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="national security">National Security</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="social security">Social Security</button></div>
+				<div class="topic"><button class="searchClickMe" data-label="taxes">Taxes</button></div>
+				
+				
+				
+				
+
+				<!-- pie chart for most frequently clicked -->
+				<div>
+					<h3>Hot Topics!</h3>
+					<canvas id = "trendingData" height=400></canvas>
+				</div>
+				<div id="message" class="align text-center">Ooops! You need to be logged in to save bills!</div>
+			</div>
+			<div class="col-md-6" id="middleCol">
+				<!-- <h3>What's Congress Doing?</h3> -->
+				<div class="bills">
+					<h2 id="startP"><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span>Click a topic to the left to find bills that interest you!</h2>
+				</div>
+				
+	<div id="billModal">
+	  	<a data-toggle="modal" href="#billModal">
+	  		<!-- <span id="accountStatus">Sign In</span> -->
+	  	</a>
+	  	
+	  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="billModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">...Continued</h4>
+        </div>
+        <div class="modal-body">
+        	<p>test</p>
+          <div id="billScript"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -57,43 +135,7 @@
   </div>
 
 
-<!-- 	<div id="account"></div> -->
-	<div class="container" id="navbar">
-		<ul class="nav nav-tabs nav-justified" id="nav-tab-list">
-			<li><a href="">Search Bills</a></li>
-			<li><a href="#" id="contactRep">Contact Your Representative(s)</a></li>
-			
 
-  <!-- Trigger the modal with a button -->  
-</div>
-
-		</ul>
-	</div>
-	<div class="container" id="main-content">
-		<div class="row">
-			<div class="col-md-2" id="searchBtns">
-				<h3>Topic</h3>
-				<div class="topic"><button class="searchClickMe" data-label="healthcare">Healthcare</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="education">Education</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="immigration">Immigration</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="gun control">Gun Control</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="social security">Social Security</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="taxes">Taxes</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="national security">National Security</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="labor">Labor and Employment</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="finance">Finance</button></div>
-				<div class="topic"><button class="searchClickMe" data-label="environment">Environmental Protection</button></div>
-
-				<!-- pie chart for most frequently clicked -->
-				<div>
-					<h3>Hot Topics!</h3>
-					<canvas id = "trendingData" height=400></canvas>
-				</div>
-				<div id="message" class="align text-center" style="position:fixed; left:40%; border:1px solid black; width:300px; height:50px; font-size: large; background-color: #dad1cb; z-index:12; display:none; top:0px; ">Ooops! You need to be logged in to save bills!</div>
-			</div>
-			<div class="col-md-6" id="middleCol">
-				<h3>What's Congress Doing?</h3>
-				<div class="bills scroll"></div>
 
 			</div>
 			<div class="col-md-4">
@@ -162,12 +204,14 @@
 			</div>
 		</div>
 	</div>
+</div>
 
    	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
   	<script type="text/javascript" src="assets/javascript/project.js"></script>
   	<script type="text/javascript" src="assets/javascript/nonprofitAPI.js"></script>
   	<script type="text/javascript" src="assets/javascript/signInLibraryCode.js"></script>
 	<script type="text/javascript" src="assets/javascript/chart.js"></script>
+	
 
 
 </body>

@@ -34,7 +34,7 @@ function displayBill() {
 			billDiv.append(libBtn);
 
 			var title = response.results[0].bills[i].title;
-			var titleP = $('<p class="title" data-type="tooltip">').text("Bill Title: " + title);
+			var titleP = $('<p class="title" data-type="tooltip">').text("Title: " + title);
 			billDiv.append(titleP);
 			
 			var introDate = response.results[0].bills[i].introduced_date;
@@ -57,13 +57,14 @@ function displayBill() {
 			
 			var billUrl = response.results[0].bills[i].congressdotgov_url;
 			var learn = $('<button>').html($('<a href=' + billUrl + ' target="_blank">Learn More</a>'));
-			$(learn).attr("class", "btn").attr("type", "button");
+			$(learn).attr("class", "btn").attr("type", "button").attr("id", "learn");
 			billDiv.append(learn);
 			
 			$('#middleCol').append(billDiv);
 		}
 	});
 }
+
 
 function showRep() {
 	// var address = prompt("Enter your address to find your congress representatives");
@@ -124,6 +125,8 @@ function showRep() {
 
 function repSearch() {
 	 	$("#middleCol").empty()
+	 	// $("#searchBtns").empty()
+	 	// $(".col-md-4").empty()
 
 	 	var addressForm = $("<div id='addForm'>");
 
