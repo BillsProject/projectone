@@ -55,6 +55,7 @@ function displayBill() {
 			var actionP = $('<p class="actions">').text("Latest Major Action: " + majorAction);
 			billDiv.append(actionP);
 			
+			var billUrl = response.results[0].bills[i].congressdotgov_url;
 			var learn = $('<button>').html($('<a href=' + billUrl + ' target="_blank">Learn More</a>'));
 			$(learn).attr("class", "btn").attr("type", "button");
 			billDiv.append(learn);
