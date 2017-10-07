@@ -104,13 +104,14 @@ function showRep() {
 
 				var phone = representatives.officials[i].phones[0];
 				var phoneP = $('<p>').text("Phone Number: " + phone);
-
+				var website = representatives.officials[i].urls[0];
+				var websiteP = $("<p> Website: <a href=" + website + " target='_blank'>" + website + "</a></p>");
+				
 				senatorDiv.append(senatorNameP);
 				senatorDiv.append(senatorPic);
 				senatorDiv.append(partyP);
 				senatorDiv.append(phoneP);
-				// senatorDiv.append($("<hr>"));
-				// senatorDiv.append(website);
+				senatorDiv.append(websiteP);
 
 				$('#middleCol').append(senatorDiv);
 			}
