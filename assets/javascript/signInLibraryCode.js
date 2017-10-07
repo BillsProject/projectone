@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     var navTab = $('<li id="myLibrary">')
     navTab.html('<a href="#" class="disabled">My Tracked Bills</a>')
     // navTab.text("My Tracked Bills")
-    $("#nav-tab-list").append(navTab)
+    $("#nav-tab-list").prepend(navTab)
     // $("#account").html("Sign Out")
 
 
@@ -104,7 +104,7 @@ function showLibrary(){
   $("#middleCol").empty()
 
   // billUri = $(this).attr("data-label")
-  $("#middleCol").html("<h3>Things I care about!</h3><div id='innerMid' style='overflow:scroll; height:700px'></div>")
+  $("#middleCol").html("<h3>Bills I'm tracking:</h3><div id='innerMid' style='overflow:scroll; height:700px'; overflow-x:'hidden'></div>")
 
   
 
@@ -126,24 +126,24 @@ function showLibrary(){
 
         var title = response.results[0].title;
         var something = response.results[0].congressdotgov_url
-        var titleP = $("<h3>Bill Title: <a href="+something+">"+title+"</a></h3>")
+        var titleP = $("<h3>Title: <a href="+something+">"+title+"</a></h3>")
         
-        var removeButton = $("<button class='remove' data-label=" + url + ">Remove</button>")
+        var removeButton = $("<button class='remove' data-label=" + url + "><span class='glyphicon glyphicon-remove'></span></button>")
 
         
         var summary = response.results[0].summary_short;
         
-        libraryDiv.append(titleP);
+        libraryDiv.prepend(titleP);
         
         if (summary.length > 0) {
         var summaryP = $('<p class="summarySection">').text("Bill Summary: " + summary);
         libraryDiv.append(summaryP);
         }
         
-        libraryDiv.append(removeButton)
+        libraryDiv.prepend(removeButton)
 
-        $("#library").append(libraryDiv);
-        $("#innerMid").append(libraryDiv)
+        $("#library").prepend(libraryDiv);
+        $("#innerMid").prepend(libraryDiv)
       
     });
   }

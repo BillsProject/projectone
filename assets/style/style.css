@@ -1,49 +1,112 @@
 body{
 	margin-bottom: 50px;
+	/*background-color: #E6D9D9;*/
+	background-image: url("../images/crossword.png");
+	font-family: 'Fira Sans', sans-serif;
 }
-.jumbotron{
-	/*background-image: url("../images/congress.jpg");*/
-/*	background-size: auto 100%;
-	background-repeat: no-repeat;*/
+.page-header{
+	/*background-image: url("../images/header_2.jpg");*/
+	/*width: auto 100%;*/
 	margin-bottom: 0px;
-	background-color: white;
-	border-bottom: solid black 4px;
+	background-color: darkred;
+	color: white;
+	/*border-bottom: solid #6F0F0F 4px;*/
 	font-family: 'Merriweather', serif;
+	/*position: sticky;*/
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	padding-left: 400px;
+	padding-top: 20px;
+	margin: 0;
+	border-bottom: none;
+	padding-bottom: 20px;
+	
 }
+h1{
+	margin-top: 0;
+	padding-top: 10px;
+}
+
+.align.text-center{
+	position: fixed;
+	left: 40%;
+	border: 1px solid #6F0F0F;
+	display: none;
+	top: 300px;
+	background-color: #dad1cb;
+	z-index: 12;
+	padding: 15px;
+}
+.row{
+	background-color: white;
+	box-shadow: 10px 10px 10px grey;
+	/*border-left: 1px solid grey;*/
+}
+.siteBody{
+	background-color: white;
+}
+.page-header p{
+	font-size: 14px;
+}
+/*#account, #navbar, #main-content{
+	margin-top: 100px;
+}*/
 #account{
 	float: right;
-	margin-right: 30px;
+	margin-right: 50px;
+	font-size: 14px;
+	margin-top: 0;
+	color: white;
+	margin-top: -30px;
+}
+#accountStatus{
+	font-size: 14px;
+	color: white;
+}
+#accountStatus:hover{
+	text-decoration: none;
+}
+#sign-out{
+	font-size: 14px;
 }
 .firebaseui-container{
 	max-width: 800px;
 }
-#navbar{
-	padding: 0;
+h1.firebaseui-title{
+	font-size: 14px;
 }
+#navbar.container{
+	padding: 0;
+	position:sticky;
+	top: -1px;
+	z-index: 1;
+	/*box-shadow: 10px 10px;*/
+}
+
 .nav-tabs.nav-justified>li>a{
 	border-radius: 0 0 7px 7px;
 	color: white;
 	background-color: darkred;
+
 }
 .nav-tabs.nav-justified>li>a:hover{
-	border-style: groove;
-	border-color: black;
+	border: none;
+	background-color: #6F0F0F;
 }
 #myLibrary>a:hover{
-	border-style: groove;
-	border-color: black;
+	border: none;
+	background-color: #6F0F0F;
 }
 #nav-btn{
 	float: right;
 	margin-right: 40px;
 }
 
-#searchButtons {
-	background-color: none;
 
-}
 #topic{
 	background: none;
+	background-color: none;
 }
 
 .btn-default-topic{
@@ -52,26 +115,49 @@ body{
 	padding: 5px;
 	background-color: none;
 }
-
+#middleCol{
+	display: inline;
+	margin-top: 30px;
+}
+#startP{
+	margin-top: 100px;
+	text-align: center;
+}
+.bills{
+	padding-top: 40px;
+	margin-top: 40px;
+}
+#learn{
+	background: none;
+	text-decoration: underline;
+}
 .billContainer{
 	color: grey;
 	background-color: ;
 	border-bottom: 2px solid black;
 	padding: 7px;
-	font-family: Times New Roman;
+	font-family: 'Crimson Text', serif;
+	font-kerning: 2px;
 }
 
 .billContainer:hover{
 	color: black;
+	background-color: lightgrey;
+	box-shadow: 2px 2px grey;
 }
 .title{
 	font-size: 18px;
 	text-align: center;
+	font-weight: bold;
+}
+h3{
+	text-align: center;
+
 }
 .libBtn{
 	float: right;
 	margin-left: 5px;
-	background-color: white;
+	background: none;
 	border: none;
 }
 .libBtn:hover{
@@ -82,9 +168,10 @@ body{
 	background: none;
 	border: none;
 	text-align: left;
+	background-color: none;
 }
 div.topic{
-	background-color: white;
+	background-color: none;
 }
 div.topic:hover{
 	color: white;
@@ -92,7 +179,7 @@ div.topic:hover{
 	
 }
 .topic{
-	background-color: lavender;
+	background-color: none;
 	border-bottom: solid 0.3px;
 	padding: 5px;
 	text-align: left;
@@ -101,12 +188,23 @@ div.topic:hover{
 	background-color: white;;
 	border: none;
 }
+#menu1{
+	background: none;
+	border: none;
+	margin-left: 100px;
+}
+#menu1:hover{
+	background-color: darkred;
+	color: white;
+}
 .scrollable-menu{
 	height: auto;
 	max-height: 300px;
 	overflow-x: hidden;
 }
-
+.col-md-4{
+	align-content: center;
+}
 #addForm{
 	padding: 7px;
 }
@@ -126,7 +224,7 @@ div.topic:hover{
 }
 .senateContainer{
 	text-align: center;
-	border-top: solid black 2px;
+	border-top: solid #6F0F0F 2px;
 	margin-top: 20px;
 }
 .senatorName{
@@ -140,15 +238,24 @@ img{
 }
 .senatorPic{
 	margin-bottom: 10px;
-	border-color: black;
+	border-color: #6F0F0F;
 	border-width: 2px;
 }
 /* added to dynamic class removal/addition */
-.current {
-	color: pink;
+
+.glyphicon-bookmark + .tooltip > .tooltip-inner{
+	background-color: #6F0F0F;
+	color: white;
+	padding: 15px;
+	font-size: 30px;
+}
+.remove{
+	border: none;
+	background: none;
 }
 
-.libBtn + tooltip > tooltip-inner{
-	background-color: black;
-	color: white;
+#orgs{	
+	overflow: scroll;
+	height: 700px;
+	overflow-x: hidden;
 }
