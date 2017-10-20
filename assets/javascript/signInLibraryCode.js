@@ -46,7 +46,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
     signedIn = true
-    console.log(uid)
+    // console.log(uid)
   } else {
     // Initialize the FirebaseUI Widget using Firebase.
     // The start method will wait until the DOM is loaded.
@@ -160,14 +160,14 @@ $(document).on("click", ".remove", removeFromLibrary)
 
 function removeFromLibrary (){
   var billURI = $(this).attr("data-label")
-  console.log(billURI)
+  // console.log(billURI)
   var index = myArray.indexOf(billURI);
 
   if (index > -1) {
     myArray.splice(index, 1);
   }
 
-  console.log(myArray)
+  // console.log(myArray)
   //push the info submitted into the database
 
   database.ref("userData/"+ uid).set({     

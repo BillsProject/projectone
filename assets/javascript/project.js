@@ -5,7 +5,8 @@ function displayBill() {
 
 	// removes previous bill data
 	$("#middleCol").empty()
-	window.that = this;
+	// doesn't seem like you use this variable anywhere, so you could just remove it.
+	// window.that = this;
 	//
 
 	$(".searchClickMe").removeClass("current");               
@@ -22,7 +23,9 @@ function displayBill() {
 	headers: {"X-API-Key": apiKeyCongress},
 	method: "GET"
 	}).done(function(response) {
-		var amountBills = response.results[0].num_results;
+		// Another variable that you don't end up using elsewhere
+		// var amountBills = response.results[0].num_results;
+
 		for (var i = 0; i < 5; i++) {
 			var billDiv = $('<div class="billContainer">');
 
@@ -88,7 +91,7 @@ function showRep() {
 		url: googleURL,
 		method: "GET"
 	}).done(function(representatives){
-		console.log(representatives);
+		// console.log(representatives);
 		for (var i = 2; i < 5; i++) {
 				var senatorDiv = $('<div class="senateContainer">');
 				var senatorName = representatives.officials[i].name;
